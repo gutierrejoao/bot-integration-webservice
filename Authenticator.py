@@ -19,13 +19,20 @@ class Authenticator():
                                               })
         return authenticationRequest
 
-    def showFullTextOutput(self):
-        print(self.authentication.text)
+    def return_request_output(self):
+        request_text = self.authentication().text
+        # print(request_text)
+        return request_text
 
-    def showStatusCode(self):
-        print(self.authentication.status_code)
+    def return_status_code(self):
+        request_status_code = self.authentication().status_code
+        # print(request_status_code)
+        return request_status_code
+        
 
-    def showAuthenticationSessionId(self):
-        response = json.loads(self.authentication.text)
+    def return_authentication_session_id(self):
+        request_text = self.return_request_output()
+        response = json.loads(request_text)
         sessionId = response['sessionID']
-        print("O SessionID é: " + sessionId)
+        return sessionId
+
