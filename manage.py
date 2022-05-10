@@ -41,17 +41,17 @@ def aprovacao():
     print("A cidade é: " + cidade)
 
     # Citsmart SessionID
-    r = requests.post('https://mmfdh.centralitcloud.com.br/citsmart/services/login',
-                      verify=False,
-                      data=json.dumps({
-                          'userName': 'citsmart.local\\chatbot',
-                          'password': '!@Webservice2@!',
-                          'platform': 'Aiovo'
-                      }),
-                      headers={
-                          'Accept': 'application/json',
-                          'Content-Type': 'application/json'
-                      })
+    # r = requests.post('https://mmfdh.centralitcloud.com.br/citsmart/services/login',
+    #                   verify=False,
+    #                   data=json.dumps({
+    #                       'userName': 'citsmart.local\\chatbot',
+    #                       'password': '!@Webservice2@!',
+    #                       'platform': 'Aiovo'
+    #                   }),
+    #                   headers={
+    #                       'Accept': 'application/json',
+    #                       'Content-Type': 'application/json'
+    #                   })
 
     # print(r.text)
     print(r.status_code)
