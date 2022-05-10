@@ -1,3 +1,4 @@
+from Authenticator import Authenticator
 from imports import *
 
 urllib3.disable_warnings()
@@ -6,7 +7,7 @@ app = Flask(__name__)
 
 
 @app.route("/citsmart", methods=['POST', 'GET'])
-def aprovacao():
+def startApp():
 
    # Server response:
     response = request.get_json()
@@ -41,23 +42,30 @@ def aprovacao():
     print("A cidade é: " + cidade)
 
     # Citsmart SessionID
-    r = requests.post('https://mmfdh.centralitcloud.com.br/citsmart/services/login',
-                      verify=False,
-                      data=json.dumps({
-                          'userName': 'citsmart.local\\chatbot',
-                          'password': '!@Webservice2@!',
-                          'platform': 'Aiovo'
-                      }),
-                      headers={
-                          'Accept': 'application/json',
-                          'Content-Type': 'application/json'
-                      })
-
+    # r = requests.post('https://mmfdh.centralitcloud.com.br/citsmart/services/login',
+    #                   verify=False,
+    #                   data=json.dumps({
+    #                       'userName': 'citsmart.local\\chatbot',
+    #                       'password': '!@Webservice2@!',
+    #                       'platform': 'Aiovo'
+    #                   }),
+    #                   headers={
+    #                       'Accept': 'application/json',
+    #                       'Content-Type': 'application/json'
+    #                   })
     # print(r.text)
-    print(r.status_code)
-    response = json.loads(r.text)
-    sessionID = response['sessionID']
-    print("O SessionID é: " + sessionID)
+    # print(r.status_code)
+    # response = json.loads(r.text)
+    # sessionID = response['sessionID']
+    # print("O SessionID é: " + sessionID)
+    
+    url = 'https://mmfdh.centralitcloud.com.br/citsmart/services/login'
+    usr = 'citsmart.local\\chatbot'
+    psswd = '!@Webservice2@!'
+    verify = False
+    platform = 'Aivo'
+
+    authenticator = Authenticator(url, usr, psswd, verify, platform)
 
     # Create
 
